@@ -8,7 +8,7 @@ export default function HomePage() {
       <p>This is a simple homepage styled with CSS.</p>
       <button>Explore More</button>
       
-      <Link to="/login">Login</Link>
+      //<Link to="/">Home</Link>
       
     </div>
   );
