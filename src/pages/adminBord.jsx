@@ -4,22 +4,22 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white p-6 space-y-6">
+      <aside className="w-64 bg-green-950 text-white p-6 space-y-6">
         <h2 className="text-2xl font-bold">Admin Panel</h2>
-        <nav className="space-y-2">
-          <a href="#" className="block hover:bg-gray-700 p-2 rounded">Dashboard</a>
-          <a href="#" className="block hover:bg-gray-700 p-2 rounded">Products</a>
-          <a href="#" className="block hover:bg-gray-700 p-2 rounded">Orders</a>
-          <a href="#" className="block hover:bg-gray-700 p-2 rounded">Users</a>
-          <a href="#" className="block hover:bg-gray-700 p-2 rounded">Logout</a>
-        </nav>
+        <Route path="/adminBord/*" element={<AdminDashboard />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="products" element={<Products />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="users" element={<Users />} />
+      </Route>
+
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-gray-100">
+      <main className="flex-1 p-6 bg-green-200">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Dashboard Overview</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
           {/* Cards */}
           <div className="bg-white p-4 rounded-xl shadow text-center">
             <h3 className="text-gray-500">Total Products</h3>
