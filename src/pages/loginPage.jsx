@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom';
+
 export default function LoginPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://cdn.pixabay.com/video/2025/03/16/265271_large.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10"></div>
+
+      {/* Login Box */}
+      <div className="bg-white bg-opacity-90 p-8 rounded-2xl shadow-xl w-full max-w-sm z-20">
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-700">Login to Your Account</h2>
         
         <form className="space-y-4">
@@ -33,11 +50,9 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-4 text-sm text-center text-gray-500">
-          Don't have an account? <a href="#" className="text-blue-600 hover:underline">Sign Up</a>
+          Don't have an account? <Link to="/signup" className="text-blue-600 hover:underline">Sign Up</Link>
         </p>
       </div>
-
-      <Link to="/login"></Link>
     </div>
   );
 }

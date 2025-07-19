@@ -30,9 +30,9 @@ function App() {
 
            <Route path="/signup" element={<SignupPage/>}></Route>
 
-            <Route path="/adminBord" element={<AdminDashboard/>}></Route>
+            <Route path="/adminBord/*" element={<AdminDashboard/>}></Route> 
 
-          <Route path="/*" element={<h1>404 Not Found</h1>}></Route>
+          <Route path="/*" element={<HomePage/>}></Route>
 
 
           
