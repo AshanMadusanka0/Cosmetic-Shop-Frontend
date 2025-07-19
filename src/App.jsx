@@ -8,6 +8,8 @@ import Testing from './component/testing'
 import LoginPage from './pages/loginPage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/homePage'
+import SignupPage from './pages/signUp'
+import AdminDashboard from './pages/adminBord'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +27,10 @@ function App() {
           <Route path="/" element={<HomePage/>}></Route>
 
           <Route path="/login" element={<LoginPage/>}></Route>
+
+           <Route path="/signup" element={<SignupPage/>}></Route>
+
+            <Route path="/adminBord" element={<AdminDashboard/>}></Route>
 
           <Route path="/*" element={<h1>404 Not Found</h1>}></Route>
 
