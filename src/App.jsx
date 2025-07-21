@@ -32,7 +32,7 @@ function App() {
 
             <Route path="/adminBord/*" element={<AdminDashboard/>}></Route> 
 
-          <Route path="/*" element={<HomePage/>}></Route>
+          <Route path="/*" element={<h1>ERROR</h1>}></Route>
 
 
           

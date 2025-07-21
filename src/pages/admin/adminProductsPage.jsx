@@ -5,7 +5,7 @@ export default function adminProductPage(){
         <div>
             <h1>Admin Pannel</h1>
             
-            <Link to="/dashBord"></Link>
+            {/* <Link to="/dashBord"></Link> */}
         </div>
 
         

@@ -55,7 +55,7 @@ export default function SignupPage() {
         </p>
       </div>
 
-      <Link to="/signup"></Link>
+      {/* <Link to="/signup"></Link> */}
     </div>
   );
 }
