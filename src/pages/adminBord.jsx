@@ -1,52 +1,34 @@
-import { Link, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
+import { BsGraphUp } from "react-icons/bs";
+import { MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { RiListUnordered } from "react-icons/ri";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function AdminDashboard() {
   return (
-    <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-green-950 text-white p-6 space-y-6">
-        <h2 className="text-2xl font-bold">Admin Panel</h2>
-       <Routes path="/*">
-        <Route path="/adminBord/*" element={<AdminDashboard />}/>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/users" element={<Users />} />
-        
-      </Routes>
-      </div>
+    <div className='bg-blue-200 w-full h-screen flex'>
+       <div className='w-[20%] h-screen bg-blue-500 flex flex-col items-center'>
+            
 
-      {/* Main Content */}
-      <main className="flex-1 p-6 bg-green-200">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Dashboard Overview</h1>
+        <Link to="/dashboard" className=" hover:bg-gray-700 p-2 rounded flex flex-row items-center"><BsGraphUp/>Dashboard</Link>
+        <Link to="/admin/products" className=" hover:bg-gray-700 p-2 rounded flex flex-row items-center"><MdOutlineProductionQuantityLimits />Products</Link>
+        <Link to="/admin/orders" className=" hover:bg-gray-700 p-2 rounded flex flex-row items-center"><RiListUnordered />Orders</Link>
+        <Link to="/admin/users" className=" hover:bg-gray-700 p-2 rounded flex flex-row items-center"><FaUserCircle />Users</Link>
+        <Link to="/logout" className=" hover:bg-gray-700 p-2 rounded">Logout</Link>
+         
+       </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
-          {/* Cards */}
-          <div className="bg-white p-4 rounded-xl shadow text-center">
-            <h3 className="text-gray-500">Total Products</h3>
-            <p className="text-2xl font-bold text-blue-600">120</p>
-          </div>
+       <div className='w-[80%] h-screen bg-red-500'>
 
-          <div className="bg-white p-4 rounded-xl shadow text-center">
-            <h3 className="text-gray-500">Total Orders</h3>
-            <p className="text-2xl font-bold text-green-600">350</p>
-          </div>
+        <Routes path="/*">
+          <Route path="/dashboard" element={<h1>Dashboard</h1>} />
+          <Route path="/products" element={<h1>Products</h1>} />
+          <Route path="/orders" element={<h1>Orders</h1>} />
+          <Route path="/login" element={<h1>Users</h1>} />
+        </Routes>
 
-          <div className="bg-white p-4 rounded-xl shadow text-center">
-            <h3 className="text-gray-500">Total Users</h3>
-            <p className="text-2xl font-bold text-purple-600">90</p>
-          </div>
-
-          <div className="bg-white p-4 rounded-xl shadow text-center">
-            <h3 className="text-gray-500">Revenue</h3>
-            <p className="text-2xl font-bold text-yellow-600">$4,500</p>
-          </div>
-        </div>
-
-        {/* Optional: Add more sections like charts or recent activity */}
-      </main>
-
-      <Link to="/adminBord"></Link>
+       </div>
     </div>
+   
   );
 }
