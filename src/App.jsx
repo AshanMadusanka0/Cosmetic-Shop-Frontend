@@ -30,7 +30,7 @@ function App() {
 
            <Route path="/signup" element={<SignupPage/>}></Route>
 
-            <Route path="/adminBord/*" element={<AdminDashboard/>}></Route> 
+            <Route path="/adminBord*" element={<AdminDashboard/>}></Route> 
 
           <Route path="/*" element={<h1>ERROR</h1>}></Route>
 
