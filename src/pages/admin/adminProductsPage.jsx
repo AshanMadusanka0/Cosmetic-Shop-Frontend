@@ -1,5 +1,5 @@
 import axios from 'axios';       //call to backend .like a postman tool
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function adminProductsPage(){
@@ -30,15 +30,24 @@ export default function adminProductsPage(){
     ]
 )
 
-  console.log(products)
+  //console.log(products)
+
+useEffect(
+    ()=>{
+
+       axios.get("http://localhost:5500/products").then(
+        (res)=>{
+        
+       console.log(res.data )// setProducts(res.data)     //call the real database product details    
+       //setProducts(res.data)
+    }
+)
+
+  },[]
+)
      
 
-    axios.get("http://localhost:5500/products").then((res)=>{
-       console.log(res.data )// setProducts(res.data)     //call the real database product details
-          
-       //setProducts(res.data) 
-      
-    })
+   
     
     return(
         //////////map function///////////
