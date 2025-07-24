@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
@@ -6,6 +8,37 @@ export default function LoginPage() {
 
   const [email,setEmail]=useState("Your Email")   /////
   const [password,setPassword]=useState("")      /////
+
+  function login(){
+    
+    axios.post("http://localhost:5500/users/login",{
+      email : email,
+      password : password
+    }).then(
+      (res)=>{
+
+       if(res.data.user ==null){
+        toast.error(res.data.message)
+        return
+       }
+       
+       toast.success("Login Success")
+       // console.log(res)
+        localStorage.setItem("token",res.data.
+        token)
+/////////////////////login page integration of backend//////////
+
+        if(res.data.user.role =="admin"){
+          window.location.href ="/adminBord"
+        }else{
+          window.location.href ="/"
+        }
+/////////////////////login page integration of backend//////////
+
+      }
+
+    )
+  }
 
 
   return (
@@ -16,13 +49,18 @@ export default function LoginPage() {
             <span>Email</span>
             <input type="text" className='bg-amber-50' defaultValue={email} onChange={
               (e)=>{
-                console.log(e.target.value)         ////
+                //console.log(e.target.value)         //// real time update login input pannel
+                setEmail(e.target.value)          //real time update email store as the function
               }
             }/>    
 
             <span>Password</span>
-            <input type="password" className='bg-amber-50' defaultValue={password}/>
-            <button>Login</button>
+            <input type="password" className='bg-amber-50' defaultValue={password} onChange={
+              (e)=>{
+                setPassword(e.target.value)
+              }
+            }/>
+            <button onClick={login}>Login</button>
           
 
       </div>
