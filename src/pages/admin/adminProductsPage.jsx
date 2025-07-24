@@ -2,7 +2,7 @@ import axios from 'axios';       //call to backend .like a postman tool
 import { useState } from 'react';
 
 
-export default function AdminProductPage(){
+export default function adminProductsPage(){
 
     const[products,setProducts] = useState([
         {
@@ -31,13 +31,15 @@ export default function AdminProductPage(){
 )
 
   console.log(products)
-    
+     
 
     axios.get("http://localhost:5500/products").then((res)=>{
-       // console.log(res.data )// setProducts(res.data)     //call the real database product details
-        setProducts(res.data)
+       console.log(res.data )// setProducts(res.data)     //call the real database product details
+          
+       //setProducts(res.data) 
+      
     })
- 
+    
     return(
         //////////map function///////////
         <div>

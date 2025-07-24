@@ -3,7 +3,7 @@ import { BsGraphUp } from "react-icons/bs";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { RiListUnordered } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
-import AdminProductPage from './admin/adminProductsPage';
+import AdminProductsPage from './admin/adminProductsPage';
 
 
 export default function AdminDashboard() {
@@ -25,7 +25,7 @@ export default function AdminDashboard() {
       
         <Routes path="/*">
           <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-          <Route path="/products" element={<AdminProductPage/>} />
+          <Route path="/products" element={<AdminProductsPage/>} />
           <Route path="/orders" element={<h1>Orders</h1>} />
           <Route path="/users" element={<h1>Users</h1>} />
           <Route path="/login" element={<h1>Users</h1>} />
