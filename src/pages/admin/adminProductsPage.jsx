@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { FaPlus, FaTrash } from 'react-icons/fa';
 import { FaPencil } from 'react-icons/fa6';
 
 export default function AdminProductsPage() {
@@ -31,12 +31,13 @@ export default function AdminProductsPage() {
   useEffect(() => {
     axios.get('http://localhost:5500/products').then((res) => {
       console.log(res.data);
-      // setProducts(res.data);
+      //setProducts(res.data);
     });
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gray-100 p-6 relative">
+        <button className='absolute bottom-[25px] right-[25px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500'><FaPlus/></button>
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Admin Panel - Product List</h1>
 
