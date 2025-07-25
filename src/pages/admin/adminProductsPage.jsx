@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 import { FaPencil } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([
@@ -37,7 +38,7 @@ export default function AdminProductsPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 relative">
-        <button className='absolute bottom-[25px] right-[25px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500'><FaPlus/></button>
+        <Link to="/adminBord/products/addProducts" className='absolute bottom-[25px] right-[25px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500'><FaPlus/></Link>
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Admin Panel - Product List</h1>
 
