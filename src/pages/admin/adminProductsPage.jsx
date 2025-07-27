@@ -8,38 +8,7 @@ import { Link } from 'react-router-dom';
 export default function AdminProductsPage() {
  // const [test,setTest] =useState("Not pressed");   
   const [products, setProducts] = useState([
-    {
-            "_id": "68776dad9ef2f7c3b8505f59",
-            "name": "Ashan",
-            "weight": 100,
-            "price": 1200,
-            "__v": 0
-        },
-        {
-            "_id": "68778b41c97f3d24fd6f012a",
-            "name": "Ashan",
-            "weight": 100,
-            "price": 1200,
-            "__v": 0
-        },
-        {
-            "_id": "68778d1799761f2c9110e400",
-            "name": "Ashan",
-            "weight": 100,
-            "price": 1200,
-            "__v": 0
-        },
-        {
-            "_id": "688346dc0852ec0801b8f66e",
-            "productID": "PROD123456",
-            "name": "Premium Basmati Rice",
-            "weight": 5,
-            "price": 1250,
-            "alternativeNames": "Basmati Rice, Long Grain Rice",
-            "imageUrl": "https://example.com/images/basmati-rice.jpg",
-            "description": "High-quality basmati rice with extra-long grains and aromatic flavor, ideal for biryani and pilaf dishes.",
-            "__v": 0
-        }
+    
   ]);
   
 
