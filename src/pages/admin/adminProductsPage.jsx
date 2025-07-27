@@ -6,13 +6,47 @@ import { Link } from 'react-router-dom';
 
 
 export default function AdminProductsPage() {
-  const [products, setProducts] = useState([]);
-  const [test,setTest] =useState("press")
+  const [test,setTest] =useState("Not pressed");   
+  const [products, setProducts] = useState([
+    {
+            "_id": "68776dad9ef2f7c3b8505f59",
+            "name": "Ashan",
+            "weight": 100,
+            "price": 1200,
+            "__v": 0
+        },
+        {
+            "_id": "68778b41c97f3d24fd6f012a",
+            "name": "Ashan",
+            "weight": 100,
+            "price": 1200,
+            "__v": 0
+        },
+        {
+            "_id": "68778d1799761f2c9110e400",
+            "name": "Ashan",
+            "weight": 100,
+            "price": 1200,
+            "__v": 0
+        },
+        {
+            "_id": "688346dc0852ec0801b8f66e",
+            "productID": "PROD123456",
+            "name": "Premium Basmati Rice",
+            "weight": 5,
+            "price": 1250,
+            "alternativeNames": "Basmati Rice, Long Grain Rice",
+            "imageUrl": "https://example.com/images/basmati-rice.jpg",
+            "description": "High-quality basmati rice with extra-long grains and aromatic flavor, ideal for biryani and pilaf dishes.",
+            "__v": 0
+        }
+  ]);
+  
 
   useEffect(() => {
     axios.get('http://localhost:5500/products').then((res) => {
       console.log(res.data);
-      setProducts(res.data);
+     // setProducts(res.data);
     });
   }, []);
 
@@ -26,12 +60,7 @@ export default function AdminProductsPage() {
         <FaPlus/>
       </Link>
 
-      <button
-        
-        className="absolute bottom-[25px] right-[130px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500"
-      >
-        {test}
-      </button>
+      
 
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
@@ -66,11 +95,23 @@ export default function AdminProductsPage() {
                   <td className="px-6 py-4">{product.weight}</td>
                   <td className="px-6 py-4">{product.price}</td>
                   <td className="px-6 py-4">{product.alternativeNames}</td>
-                  <td className="px-6 py-4">{product.imgUrl}</td>
+                  <td className="px-6 py-4">{product.imageUrl}</td>
                   <td className="px-6 py-4">{product.description}</td>
                   <td className="px-6 py-4 text-center">
                     <div className="flex justify-center gap-4 text-lg text-gray-600">
-                      <button className="hover:text-red-600 transition duration-150">
+                      <button className="hover:text-red-600 transition duration-150" onClick={()=>{
+                        alert(product.productID)
+                        const token = localStorage.getItem("token");
+
+                        axios.delete('http://localhost:5500/products/',(product.productID),{
+                          headers: {
+                            Authorization: 'Bearer'+token
+                          },
+                        }).then((res) =>{
+                          console.log(res.data)
+                        });
+                        
+                      }}>
                         <FaTrash />
                       </button>
                       <button className="hover:text-blue-600 transition duration-150">

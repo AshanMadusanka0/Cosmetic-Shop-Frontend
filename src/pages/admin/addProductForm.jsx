@@ -11,7 +11,7 @@ export default function AddProductsForm() {
   const [alternativeNames, setAlternativeNames] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
-  const[productID,setProductID] =useState("");
+  const [productID,setProductID] =useState("");
   const Navigate = useNavigate()         //function for the re derect other page to submit successfull 
 
 ////////////////////spli yoda wachana wenkragena ema data backend ekata send krna hada gnna puluwan
