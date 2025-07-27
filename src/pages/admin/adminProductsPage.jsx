@@ -4,8 +4,10 @@ import { FaPlus, FaTrash } from 'react-icons/fa';
 import { FaPencil } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
+
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
+  const [test,setTest] =useState("press")
 
   useEffect(() => {
     axios.get('http://localhost:5500/products').then((res) => {
@@ -19,10 +21,17 @@ export default function AdminProductsPage() {
       {/* Add product button */}
       <Link
         to="/adminBord/products/addProducts"
-        className="absolute bottom-[25px] right-[25px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500"
+        className="absolute bottom-[25px] right-[60px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500"
       >
-        <FaPlus />
+        <FaPlus/>
       </Link>
+
+      <button
+        
+        className="absolute bottom-[25px] right-[130px] text-[20px] bg-blue-800 p-3 rounded-lg text-white hover:bg-blue-500"
+      >
+        {test}
+      </button>
 
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
@@ -37,6 +46,10 @@ export default function AdminProductsPage() {
                 <th className="px-6 py-3 text-left">Name</th>
                 <th className="px-6 py-3 text-left">Weight (g)</th>
                 <th className="px-6 py-3 text-left">Price (LKR)</th>
+                <th className="px-6 py-3 text-left">alternativeNames</th>
+                <th className="px-6 py-3 text-left">ImageUrl</th>
+                <th className="px-6 py-3 text-left">Description</th>
+
                 <th className="px-6 py-3 text-center">Actions</th>
               </tr>
             </thead>
@@ -52,6 +65,9 @@ export default function AdminProductsPage() {
                   <td className="px-6 py-4">{product.name}</td>
                   <td className="px-6 py-4">{product.weight}</td>
                   <td className="px-6 py-4">{product.price}</td>
+                  <td className="px-6 py-4">{product.alternativeNames}</td>
+                  <td className="px-6 py-4">{product.imgUrl}</td>
+                  <td className="px-6 py-4">{product.description}</td>
                   <td className="px-6 py-4 text-center">
                     <div className="flex justify-center gap-4 text-lg text-gray-600">
                       <button className="hover:text-red-600 transition duration-150">
