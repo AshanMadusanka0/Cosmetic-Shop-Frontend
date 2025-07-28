@@ -32,7 +32,7 @@ export default function AddProductsForm() {
      
      try{
 
-        await axios.post("http://localhost:5500/products",product,{
+        await axios.post("import.meta.env.VITE_BACKEND_URLproducts",product,{
         headers: {
             Authorization: "Bearer "+token
         }

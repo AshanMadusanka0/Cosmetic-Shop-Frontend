@@ -11,7 +11,7 @@ export default function LoginPage() {
 
   function login(){
     
-    axios.post("http://localhost:5500/users/login",{
+    axios.post(import.meta.env.VITE_BACKEND_URL+"/users/login",{
       email : email,
       password : password
     }).then(
