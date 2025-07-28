@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function AdminProductsPage() {
- // const [test,setTest] =useState("Not pressed");   
+ const [test,setTest] =useState("Not pressed");   
   const [products, setProducts] = useState([
     
   ]);
@@ -70,11 +70,8 @@ export default function AdminProductsPage() {
                   <td className="px-6 py-4">{product.description}</td>
                   <td className="px-6 py-4 text-center">
                     <div className="flex justify-center gap-4 text-lg text-gray-600">
-                    <button className="hover:text-red-600 transition duration-150" >
-
-                        <FaTrash />
-                      </button>
-                      {/* <button className="hover:text-red-600 transition duration-150" onClick={()=>{
+                    
+                      <button className="hover:text-red-600 transition duration-150" onClick={()=>{
                         alert(product.productID)
                         const token = localStorage.getItem("token");
 
@@ -84,11 +81,12 @@ export default function AdminProductsPage() {
                           },
                         }).then((res) =>{
                           console.log(res.data)
+                          toast.success("product deleted")
                         });
                         
                       }}>
                         <FaTrash />
-                      </button> */}
+                      </button>
                       <button className="hover:text-blue-600 transition duration-150">
                         <FaPencil />
                       </button>
