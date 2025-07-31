@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 
 
 export default function AdminProductsPage() {
- const [test,setTest] =useState("Not pressed");   
+ //const [test,setTest] =useState("Not pressed");   
   const [products, setProducts] = useState([
     
   ]);
   
 
   useEffect(() => {
-    axios.get('import.meta.env.VITE_BACKEND_URLproducts').then((res) => {
+    axios.get(import.meta.env.VITE_BACKEND_URL+'/products').then((res) => {
       console.log(res.data);
 
       setProducts(res.data.list);
@@ -75,7 +75,7 @@ export default function AdminProductsPage() {
                         alert(product.productID)
                         const token = localStorage.getItem("token");
 
-                        axios.delete('import.meta.env.VITE_BACKEND_URLproducts/',(product.productID),{
+                        axios.delete(import.meta.env.VITE_BACKEND_URL+'/products/',(product.productID),{
                           headers: {
                             Authorization: 'Bearer'+token
                           },

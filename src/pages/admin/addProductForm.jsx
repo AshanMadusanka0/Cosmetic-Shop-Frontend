@@ -32,7 +32,7 @@ export default function AddProductsForm() {
      
      try{
 
-        await axios.post("import.meta.env.VITE_BACKEND_URLproducts",product,{
+        await axios.post(import.meta.env.VITE_BACKEND_URL+"/products",product,{
         headers: {
             Authorization: "Bearer "+token
         }
@@ -110,7 +110,7 @@ export default function AddProductsForm() {
             type="text"
             placeholder="Enter product name"
             className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
-            value={imageUrl}
+            value={alternativeNames}
             onChange={(e) => setAlternativeNames(e.target.value)}
           />
         </div>
@@ -123,7 +123,7 @@ export default function AddProductsForm() {
             type="text"
             placeholder="Enter product name"
             className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
-            value={alternativeNames}
+            value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           />
         </div>
