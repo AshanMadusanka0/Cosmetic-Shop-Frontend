@@ -1,51 +1,35 @@
-import { useState } from 'react'
-
-import './App.css'
-
-  ///we should not  add .js  in react 
-
-import LoginPage from './pages/loginPage'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/homePage'
-import SignupPage from './pages/signUp'
-import AdminDashboard from './pages/adminBord'
-import { Toaster } from 'react-hot-toast'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./pages/homePage";
+import LoginPage from "./pages/loginPage";
+import RegisterPage from "./pages/registerPage";
+import AdminPage from "./pages/adminPage";
+import TestPage from "./pages/testPage";
+import { Toaster } from "react-hot-toast";
+import ClientWebPage from "./pages/client/clientPage";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import ForgetPasswordPage from "./pages/client/forgetPassword";
+const clientId =
+	"1086978250852-q498jik4ukaq8q6m66ar26dgt6chjv24.apps.googleusercontent.com";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-     
-     {/* <ProductCard name="Online Sale" price="$500" src="https://thumbs.dreamstime.com/b/resume-icon-vector-male-person-profile-avatar-document-symbol-business-glyph-pictogram-illustration-166893541.jpg"/>
-     <ProductCard name="Market Sale" price="$200" src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?semt=ais_hybrid&w=740"/>
-     <UserData/> */}
-
-     <BrowserRouter>
-     <Toaster position='top-right'/>
-
-       <Routes path="/*">
-          
-          <Route path="/" element={<HomePage/>}></Route>
-
-          <Route path="/login" element={<LoginPage/>}></Route>
-
-           <Route path="/signup" element={<SignupPage/>}></Route>
-           
-
-            <Route path="/adminBord/*" element={<AdminDashboard/>}></Route> 
-
-          <Route path="/*" element={<h1>ERROR</h1>}></Route>
-
-
-          
-       
-       </Routes>
-     </BrowserRouter>
-     
-      
-    </>
-  )
+	return (
+		<BrowserRouter>
+			<GoogleOAuthProvider clientId={clientId}>
+				<div className="w-full h-screen flex justify-center items-center bg-primary text-secondary">
+					<Toaster position="top-right" />
+					<Routes path="/">
+						<Route path="/login" element={<LoginPage />} />
+						<Route path="/test" element={<TestPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/admin/*" element={<AdminPage />} />
+						<Route path="/forget" element={<ForgetPasswordPage/>}/>
+						<Route path="/*" element={<ClientWebPage />} />
+					</Routes>
+				</div>
+			</GoogleOAuthProvider>
+		</BrowserRouter>
+	);
 }
 
-export default App
+export default App;
